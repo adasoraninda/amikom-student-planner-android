@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/pink_light">
+
+    <item
+        android:bottom="@dimen/size_4"
+        android:top="@dimen/size_4">
+        <shape>
+            <gradient
+                android:angle="360"
+                android:endColor="@color/pink_primary"
+                android:startColor="@color/pink_dark" />
+            <padding
+                android:left="@dimen/size_16"
+                android:right="@dimen/size_16" />
+            <corners android:radius="@dimen/size_24" />
+        </shape>
+    </item>
+
+
+</ripple>

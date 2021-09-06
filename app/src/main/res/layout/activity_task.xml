@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.codetron.studentplanner.utils.Formatter" />
+
+        <variable
+            name="task"
+            type="com.codetron.studentplanner.data.model.Task" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <com.codetron.studentplanner.view.ToolBarMain
+            android:id="@+id/tool_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:showBackButton="true" />
+
+        <ScrollView
+            android:id="@+id/scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tool_bar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/size_16">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/size_24"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/image_task"
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        android:background="@color/gray_light"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:shapeAppearanceOverlay="@style/ImageShapeCircle"
+                        app:taskImage="@{task.image}" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_16"
+                        android:text="@string/add_task_title"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/edit_text_task_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_4"
+                        android:hint="@string/hint_add_task_title"
+                        android:importantForAutofill="no"
+                        android:inputType="text"
+                        android:text="@{task.title}" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_16"
+                        android:text="@string/add_task_desc"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/edit_text_task_desc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_4"
+                        android:gravity="top"
+                        android:hint="@string/hint_add_task_desc"
+                        android:importantForAutofill="no"
+                        android:inputType="textMultiLine"
+                        android:minLines="5"
+                        android:scrollbarAlwaysDrawVerticalTrack="true"
+                        android:text="@{task.description}" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_16"
+                        android:text="@string/add_task_date"
+                        android:textStyle="bold" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_4">
+
+                        <TextView
+                            android:id="@+id/text_task_date"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_edit_text"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:paddingEnd="@dimen/size_56"
+                            android:text="@{Formatter.formatDate(task.date)}"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="RtlSymmetry"
+                            tools:text="@tools:sample/lorem/random" />
+
+                        <ImageButton
+                            android:id="@+id/image_button_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:background="@android:color/transparent"
+                            android:paddingHorizontal="@dimen/size_16"
+                            android:src="@drawable/ic_date"
+                            android:tint="@color/pink_primary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="ContentDescription" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_16"
+                        android:text="@string/add_task_priority"
+                        android:textStyle="bold" />
+
+                    <com.warkiz.tickseekbar.TickSeekBar
+                        android:id="@+id/seek_bar_task_priority"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_8"
+                        app:progressPriority="@{task.priority}"
+                        app:tsb_max="5"
+                        app:tsb_min="1"
+                        app:tsb_show_tick_texts="below"
+                        app:tsb_thumb_color="@color/pink_primary"
+                        app:tsb_thumb_size="@dimen/size_16"
+                        app:tsb_tick_texts_color="@color/black_pearl"
+                        app:tsb_ticks_count="5"
+                        app:tsb_track_background_color="@color/gray_light"
+                        app:tsb_track_background_size="@dimen/size_8"
+                        app:tsb_track_progress_color="@color/pink_light"
+                        app:tsb_track_progress_size="@dimen/size_12"
+                        app:tsb_track_rounded_corners="true"
+                        tools:tsb_progress="3" />
+
+                    <com.codetron.studentplanner.view.ButtonPrimary
+                        android:id="@+id/button_add_task"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/size_48"
+                        android:layout_marginTop="@dimen/size_48"
+                        android:text="@string/add_task" />
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

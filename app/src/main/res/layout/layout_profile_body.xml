@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="@dimen/size_24">
+
+    <com.codetron.studentplanner.view.CardProfileItem
+        android:id="@+id/item_edit_profile"
+        style="@style/CardItemStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:drawableProfile="@drawable/ic_profile_item"
+        app:layout_constraintEnd_toEndOf="@id/line_2"
+        app:layout_constraintStart_toStartOf="@id/line_1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleProfile="@string/edit_profile" />
+
+    <com.codetron.studentplanner.view.CardProfileItem
+        android:id="@+id/item_language"
+        style="@style/CardItemStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_4"
+        app:drawableProfile="@drawable/ic_document_item"
+        app:layout_constraintEnd_toEndOf="@id/line_2"
+        app:layout_constraintStart_toStartOf="@id/line_1"
+        app:layout_constraintTop_toBottomOf="@id/item_edit_profile"
+        app:titleProfile="@string/language" />
+
+    <com.codetron.studentplanner.view.CardProfileItem
+        android:id="@+id/item_give_rate"
+        style="@style/CardItemStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_4"
+        app:drawableProfile="@drawable/ic_star_item"
+        app:layout_constraintEnd_toEndOf="@id/line_2"
+        app:layout_constraintStart_toStartOf="@id/line_1"
+        app:layout_constraintTop_toBottomOf="@id/item_language"
+        app:titleProfile="@string/give_rate" />
+
+    <com.codetron.studentplanner.view.CardProfileItem
+        android:id="@+id/item_help_center"
+        style="@style/CardItemStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_4"
+        app:drawableProfile="@drawable/ic_shield_item"
+        app:layout_constraintEnd_toEndOf="@id/line_2"
+        app:layout_constraintStart_toStartOf="@id/line_1"
+        app:layout_constraintTop_toBottomOf="@id/item_give_rate"
+        app:titleProfile="@string/help_center" />
+
+    <com.codetron.studentplanner.view.CardProfileItem
+        android:id="@+id/item_logout"
+        style="@style/CardItemStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_4"
+        app:drawableProfile="@drawable/ic_exit"
+        app:layout_constraintEnd_toEndOf="@id/line_2"
+        app:layout_constraintStart_toStartOf="@id/line_1"
+        app:layout_constraintTop_toBottomOf="@id/item_help_center"
+        app:titleProfile="@string/logout" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/size_16" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/size_16" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

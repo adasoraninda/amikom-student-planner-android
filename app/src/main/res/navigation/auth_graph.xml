@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/auth_graph"
+    app:startDestination="@id/welcome_fragment">
+    <fragment
+        android:id="@+id/welcome_fragment"
+        android:name="com.codetron.studentplanner.ui.auth.welcome.WelcomeFragment">
+        <action
+            android:id="@+id/action_welcome_fragment_to_sign_in_fragment"
+            app:destination="@id/sign_in_fragment" />
+
+        <action
+            android:id="@+id/action_welcome_fragment_to_sign_up_fragment"
+            app:destination="@id/sign_up_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sign_in_fragment"
+        android:name="com.codetron.studentplanner.ui.auth.signin.SignInFragment">
+        <action
+            android:id="@+id/action_sign_in_fragment_to_sign_up_fragment"
+            app:destination="@id/sign_up_fragment" />
+        <action
+            android:id="@+id/action_sign_in_fragment_to_home_activity"
+            app:destination="@id/home_activity" />
+    </fragment>
+    <fragment
+        android:id="@+id/sign_up_fragment"
+        android:name="com.codetron.studentplanner.ui.auth.signup.SignUpFragment">
+        <action
+            android:id="@+id/action_sign_up_fragment_to_sign_in_fragment"
+            app:destination="@id/sign_in_fragment" />
+        <action
+            android:id="@+id/action_sign_up_fragment_to_home_activity"
+            app:destination="@id/home_activity" />
+
+    </fragment>
+    <activity
+        android:id="@+id/home_activity"
+        android:name="com.codetron.studentplanner.ui.home.HomeActivity" />
+</navigation>

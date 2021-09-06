@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_graph"
+    app:startDestination="@id/menu_dashboard">
+
+    <fragment
+        android:id="@id/menu_task"
+        android:name="com.codetron.studentplanner.ui.home.tasks.TasksFragment"
+        tools:layout="@layout/fragment_tasks">
+        <action
+            android:id="@+id/action_menu_task_to_task_activity"
+            app:destination="@id/task_activity" />
+    </fragment>
+
+    <fragment
+        android:id="@id/menu_dashboard"
+        android:name="com.codetron.studentplanner.ui.home.dashboard.DashboardFragment"
+        tools:layout="@layout/fragment_dashboard">
+        <action
+            android:id="@+id/action_menu_dashboard_to_task_activity"
+            app:destination="@id/task_activity" />
+    </fragment>
+
+    <fragment
+        android:id="@id/menu_profile"
+        android:name="com.codetron.studentplanner.ui.home.profile.ProfileFragment"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_menu_profile_to_edit_profile_activity"
+            app:destination="@id/edit_profile_activity" />
+    </fragment>
+
+    <activity
+        android:id="@+id/edit_profile_activity"
+        android:name="com.codetron.studentplanner.ui.profile.EditProfileActivity"
+        tools:layout="@layout/activity_edit_profile" />
+
+    <activity
+        android:id="@+id/task_activity"
+        android:name="com.codetron.studentplanner.ui.task.TaskActivity"
+        tools:layout="@layout/activity_task">
+        <argument
+            android:name="taskId"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+    </activity>
+
+
+</navigation>

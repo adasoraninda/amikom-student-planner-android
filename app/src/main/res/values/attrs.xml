@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TextViewMain">
+        <attr name="showTextApp" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="ToolBarMain">
+        <attr name="title" format="string" />
+        <attr name="showBackButton" format="boolean" />
+        <attr name="actionDrawable" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="CardProfileItem">
+        <attr name="titleProfile" format="string" />
+        <attr name="drawableProfile" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="CardFeatureItem">
+        <attr name="textFeature" format="string" />
+        <attr name="drawableFeature" format="reference" />
+    </declare-styleable>
+</resources>

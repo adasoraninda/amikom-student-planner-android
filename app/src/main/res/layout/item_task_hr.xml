@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.codetron.studentplanner.utils.Formatter" />
+
+        <variable
+            name="task"
+            type="com.codetron.studentplanner.data.model.Task" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/size_5"
+        android:layout_marginEnd="@dimen/size_5"
+        android:clickable="true"
+        android:clipChildren="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardCornerRadius="@dimen/size_10"
+        app:cardPriorityColor="@{task.priority}"
+        tools:cardBackgroundColor="@color/pink_primary">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="142dp"
+            android:layout_height="172dp">
+
+            <TextView
+                android:id="@+id/text_task_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/size_16"
+                android:layout_marginTop="@dimen/size_16"
+                android:layout_marginEnd="@dimen/size_16"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{task.title}"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/app_name" />
+
+            <TextView
+                android:id="@+id/text_task_duration"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/size_16"
+                android:layout_marginEnd="@dimen/size_16"
+                android:ellipsize="end"
+                android:fontFamily="@font/poppins_light"
+                android:maxLines="1"
+                android:text="@{Formatter.formatDateRemaining(task.date)}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_12"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_task_name"
+                tools:text="@string/app_name" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/image_task"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:scaleType="fitXY"
+                app:imgUrl="@{task.image}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_task_duration"
+                app:layout_constraintVertical_bias="1"
+                app:shapeAppearanceOverlay="@style/ImageShapeCircle"
+                tools:ignore="ContentDescription"
+                tools:src="@color/yellow_primary" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+</layout>
